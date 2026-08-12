@@ -21,6 +21,12 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Courier+Prime:wght@400;700&family=Arial&display=swap">
 
+<!-- Perxona SDK Integration -->
+<script
+  type="module"
+  src="https://cdn.perxona.ai/asia/prod/latest/widget/entry/index.js"
+></script>
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -60,11 +66,7 @@
   ]
 }
 </script>
-<script
-  type="module"
-  src="https://cdn.perxona.ai/asia/prod/latest/widget/entry/index.js"
-></script>
-  
+
 <style>
   :root {
     --ink: #f7f4ec;
@@ -643,6 +645,13 @@
   </div>
 </footer>
 
+<!-- Perxona AI Avatar Widget -->
+<sv-agent
+  agentProfileId="01KZTWFB1Y45EW2NVY9FSG9Y8N"
+  presentationMode="embedded"
+  apiKey="ba1b5bee-20d5-492c-9526-87cfbca58aff"
+></sv-agent>
+
 <script>
 document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -673,12 +682,5 @@ if (!reduced && !nativeScroll) {
   document.querySelectorAll('[data-reveal]').forEach(el => el.classList.add('is-in'));
 }
 </script>
-  
-<sv-agent
-  agentProfileId="01KZTWFB1Y45EW2NVY9FSG9Y8N"
-  presentationMode="embedded"
-  apiKey="ba1b5bee-20d5-492c-9526-87cfbca58aff"
->
-</sv-agent>
 </body>
 </html>
