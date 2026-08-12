@@ -645,12 +645,14 @@
   </div>
 </footer>
 
-<!-- Perxona AI Avatar Widget -->
-<sv-agent
-  agentProfileId="01KZTWFB1Y45EW2NVY9FSG9Y8N"
-  presentationMode="embedded"
-  apiKey="ba1b5bee-20d5-492c-9526-87cfbca58aff"
-></sv-agent>
+<!-- Perxona AI Avatar Widget (Wrapped in a floating container) -->
+<div style="position: fixed; bottom: 20px; right: 20px; width: 360px; height: 600px; z-index: 9999; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.4);">
+  <sv-agent
+    agentProfileId="01KZTWFB1Y45EW2NVY9FSG9Y8N"
+    presentationMode="embedded"
+    apiKey="ba1b5bee-20d5-492c-9526-87cfbca58aff"
+  ></sv-agent>
+</div>
 
 <script>
 document.getElementById('year').textContent = new Date().getFullYear();
