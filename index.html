@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Taipei Tours — Local, Private Guided Walks</title>
+<meta name="description" content="Private, friendly guided tours of Taipei with a local who knows the alleys, the temples and the best bowl of mango ice in the city. From NT$650.">
+<link rel="canonical" href="https://example.com/"><!-- update after deploying -->
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Taipei Tours — Local, Private Guided Walks">
+<meta property="og:description" content="Private, friendly guided tours of Taipei with a local who knows the alleys, the temples and the best bowl of mango ice in the city. From NT$650.">
+<meta property="og:url" content="https://example.com/">
+<meta property="og:image" content="assets/hero-focal.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Crect%20width='100'%20height='100'%20fill='%23171717'/%3E%3Ctext%20x='50'%20y='68'%20font-size='60'%20text-anchor='middle'%20fill='%23f23e32'%3E%E2%97%86%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Courier+Prime:wght@400;700&family=Arial&display=swap">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TravelAgency",
+  "name": "Taipei Tours",
+  "url": "https://example.com/",
+  "description": "Private, friendly local-guided walking tours of Taipei covering night markets, temples, and city viewpoints.",
+  "areaServed": "Taipei, Taiwan",
+  "priceRange": "NT$650–NT$2000"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Are the tours private?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every tour is just you, whoever you bring, and your guide — up to 6 guests per group." }
+    },
+    {
+      "@type": "Question",
+      "name": "What's included in the price?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Your guide's time and route planning. Food tastings, MRT fare, and temple donations are noted per tour and covered where marked; otherwise you pay as you go." }
+    },
+    {
+      "@type": "Question",
+      "name": "How much walking is involved?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Varies by tour, from easy market strolls to a real hill climb on the Elephant Mountain hike. Each listing notes the pace." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you build a custom route?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes — message with what you're into and available dates, and a route gets built around it." }
+    }
+  ]
+}
+</script>
+
+<style>
+  :root {
+    --ink: #f7f4ec;
+    --paper: #efe8d8;
+    --bg: #111b2e;
+    --bg-2: #0a1220;
+    --panel: #17233a;
+    --accent: #d4af37;
+    --accent-2: color-mix(in oklch, var(--accent) 72%, black 28%);
+    --muted: #b9b3a4;
+    --max: 1180px;
+    --font-display: "Archivo Black", "Arial Black", Arial, sans-serif;
+    --font-type: "Courier Prime", "Courier New", monospace;
+    --font-body: Arial, "Helvetica Neue", sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    text-wrap: pretty;
+  }
+  img, svg, video { max-width: 100%; display: block; }
+  a { color: inherit; }
+  h1, h2, h3 { text-wrap: balance; font-family: var(--font-display); font-weight: 400; }
+  p { line-height: 1.6; }
+  :focus-visible { outline: 3px solid var(--accent-2); outline-offset: 3px; }
+
+  .skip { position: absolute; left: -9999px; padding: 12px 20px; z-index: 200; background: var(--ink); color: #111; }
+  .skip:focus { left: 12px; top: 12px; }
+
+  .wrap { width: min(100% - clamp(32px, 8vw, 112px), var(--max)); margin-inline: auto; }
+
+  /* grain overlay */
+  .grain { position: fixed; inset: 0; pointer-events: none; z-index: 999; opacity: .05; mix-blend-mode: overlay; }
+
+  [data-reveal] { opacity: 0; transform: translateY(14px); }
+  [data-reveal].is-in { opacity: 1; transform: none; transition: opacity .6s cubic-bezier(.16,1,.3,1), transform .6s cubic-bezier(.16,1,.3,1); }
+  @supports (animation-timeline: view()) {
+    [data-reveal] { opacity: 1; transform: none; animation: reveal linear both; animation-timeline: view(); animation-range: entry 8% cover 30%; }
+    @keyframes reveal { from { opacity: 0; transform: translateY(14px); } }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+    [data-reveal] { opacity: 1 !important; transform: none !important; }
+  }
+
+  /* ---------- header ---------- */
+  header.site {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(10,18,32,.92); backdrop-filter: blur(10px);
+    border-bottom: 1px solid #22314c;
+  }
+  .site-nav { display: flex; align-items: center; justify-content: space-between; padding: 18px 0; gap: 16px; }
+  .brand { font-family: var(--font-display); font-size: clamp(20px, 2.6vw, 26px); letter-spacing: -.02em; }
+  .brand span { color: var(--accent); }
+  .nav-links { display: flex; gap: 26px; list-style: none; margin: 0; padding: 0; font-family: var(--font-type); font-size: 14px; }
+  .nav-links a { text-decoration: none; padding: 10px 2px; min-height: 44px; display: inline-flex; align-items: center; }
+  .nav-links a:hover { color: var(--accent-2); }
+  .nav-cta {
+    font-family: var(--font-type); font-weight: 700; font-size: 14px;
+    background: var(--accent); color: #14213a; padding: 10px 18px; border: 2px solid var(--accent);
+    text-decoration: none; min-height: 44px; display: inline-flex; align-items: center; white-space: nowrap;
+  }
+  .nav-cta:hover { background: transparent; color: var(--accent); }
+  .menu-btn { display: none; background: none; border: 2px solid var(--ink); color: var(--ink); min-height: 44px; min-width: 44px; }
+  @media (max-width: 820px) {
+    .nav-links, .nav-cta.desktop-only { display: none; }
+    .menu-btn { display: inline-flex; align-items: center; justify-content: center; }
+    .mobile-panel { display: none; flex-direction: column; gap: 4px; padding: 10px 0 18px; }
+    .mobile-panel.open { display: flex; }
+    .mobile-panel a { padding: 12px 4px; min-height: 44px; display: flex; align-items: center; text-decoration: none; border-top: 1px solid #22314c; font-family: var(--font-type); }
+  }
+
+  /* ---------- hero ---------- */
+  .hero { position: relative; min-height: 100dvh; overflow: hidden; background: var(--bg-2); }
+  .hero-bg {
+    position: absolute; inset: 0; background-size: cover; background-position: center 30%;
+    filter: blur(18px) brightness(.5) saturate(1.1); transform: scale(1.12);
+  }
+  .hero-bg::after { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(90deg, rgba(255,255,255,.02) 0 1px, transparent 1px 4px); }
+  .hero-inner { position: relative; z-index: 2; min-height: 100dvh; display: grid; align-items: center; padding: 120px 0 60px; }
+  .hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px; align-items: center; }
+  .hero-copy .eyebrow { font-family: var(--font-type); color: var(--accent-2); letter-spacing: .12em; font-size: 13px; text-transform: uppercase; margin: 0 0 18px; }
+  .hero-copy h1 { font-size: clamp(46px, 7vw, 92px); line-height: .92; letter-spacing: -.02em; margin: 0 0 22px; }
+  .hero-copy .lede { font-size: clamp(17px, 2vw, 20px); color: var(--muted); max-width: 46ch; margin: 0 0 30px; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+  .btn-primary {
+    font-family: var(--font-type); font-weight: 700; text-decoration: none; background: var(--accent); color: #14213a;
+    padding: 16px 28px; border: 2px solid var(--accent); min-height: 44px; display: inline-flex; align-items: center;
+  }
+  .btn-primary:hover { background: transparent; color: var(--accent); }
+  .confidence { font-family: var(--font-type); font-size: 13px; color: var(--muted); }
+
+  .hero-art { position: relative; min-height: 420px; }
+  .hero-focal {
+    position: relative; width: 78%; margin-inline: auto; aspect-ratio: 4/5; overflow: hidden;
+    border: 6px solid var(--ink); box-shadow: 14px 16px 0 rgba(0,0,0,.55);
+    transform: rotate(-2deg);
+  }
+  .hero-focal img { width: 100%; height: 100%; object-fit: cover; }
+  .hero-polaroid {
+    position: absolute; left: -4%; bottom: -6%; width: 46%; background: var(--paper); color: #14213a;
+    padding: 10px 10px 40px; transform: rotate(6deg); box-shadow: 10px 12px 0 rgba(0,0,0,.55); z-index: 3;
+  }
+  .hero-polaroid img { aspect-ratio: 3/4; object-fit: cover; }
+  .hero-polaroid small { display: block; margin-top: 10px; font-family: var(--font-type); font-size: 12px; }
+  .hero-stamp {
+    position: absolute; right: -2%; top: 4%; border: 3px solid var(--accent-2); color: var(--accent-2);
+    font-family: var(--font-type); font-weight: 700; padding: 10px 14px; transform: rotate(10deg); z-index: 3;
+    font-size: 13px; background: rgba(10,18,32,.6);
+  }
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero-art { order: -1; min-height: 340px; margin-bottom: 10px; }
+    .hero-focal { width: 66%; }
+    .hero-polaroid { width: 52%; }
+  }
+
+  section { padding: clamp(64px, 9vw, 120px) 0; }
+  .section-head { max-width: 62ch; margin-bottom: 44px; }
+  .section-head .kicker { font-family: var(--font-type); color: var(--accent); text-transform: uppercase; letter-spacing: .1em; font-size: 13px; margin: 0 0 12px; }
+  .section-head h2 { font-size: clamp(32px, 5vw, 56px); line-height: .98; letter-spacing: -.02em; margin: 0 0 16px; }
+  .section-head p { color: var(--muted); font-size: 17px; }
+
+  /* ---------- services / tours: archive chapters ---------- */
+  #tours { background: var(--bg-2); }
+  .chapters { display: flex; flex-direction: column; gap: 0; }
+  .chapter {
+    display: grid; grid-template-columns: 120px 1fr 320px; gap: 30px; align-items: center;
+    padding: 34px 0; border-top: 1px solid #22314c;
+  }
+  .chapters .chapter:last-child { border-bottom: 1px solid #22314c; }
+  .chapter-num { font-family: var(--font-type); font-size: 15px; color: var(--muted); }
+  .chapter-num b { display: block; font-family: var(--font-display); font-size: 34px; color: var(--ink); }
+  .chapter-body h3 { font-size: clamp(24px, 3vw, 32px); margin: 0 0 10px; letter-spacing: -.01em; }
+  .chapter-body p { color: var(--muted); margin: 0 0 14px; max-width: 56ch; }
+  .chapter-meta { display: flex; gap: 18px; flex-wrap: wrap; font-family: var(--font-type); font-size: 13px; color: var(--accent-2); }
+  .chapter-photo { position: relative; aspect-ratio: 3/2; overflow: hidden; border: 4px solid var(--ink); transform: rotate(-1deg); box-shadow: 8px 10px 0 rgba(0,0,0,.5); }
+  .chapter-photo img { width: 100%; height: 100%; object-fit: cover; filter: saturate(1.05); }
+  .chapter-price {
+    position: absolute; bottom: -12px; left: -12px; background: var(--accent); color: #14213a; font-family: var(--font-type);
+    font-weight: 700; padding: 6px 12px; font-size: 14px; transform: rotate(-4deg); box-shadow: 4px 4px 0 rgba(0,0,0,.5);
+  }
+  @media (max-width: 860px) {
+    .chapter { grid-template-columns: 1fr; gap: 16px; }
+    .chapter-num { display: flex; align-items: baseline; gap: 10px; }
+    .chapter-num b { font-size: 26px; }
+    .chapter-photo { order: -1; }
+  }
+
+  /* ---------- proof: notebook testimonials ---------- */
+  #proof { position: relative; }
+  .notebook {
+    background: repeating-linear-gradient(var(--paper) 0 30px, #ddd3ba 31px 32px);
+    color: #14213a; padding: 8px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;
+  }
+  .note-card { background: transparent; padding: 22px 22px 22px 46px; position: relative; }
+  .note-card::before {
+    content: ""; position: absolute; left: 18px; top: 20px; bottom: 20px; width: 2px; background: var(--accent);
+  }
+  .note-card p.quote { font-family: var(--font-type); font-size: 15px; line-height: 1.7; margin: 0 0 14px; }
+  .note-card .attr { font-family: var(--font-type); font-size: 13px; color: #6f6b5c; font-weight: 700; }
+  .placeholder-flag { display: inline-block; margin-top: 8px; font-family: var(--font-type); font-size: 11px; color: var(--accent); border: 1px dashed var(--accent); padding: 2px 8px; }
+  @media (max-width: 860px) { .notebook { grid-template-columns: 1fr; } }
+
+  /* ---------- about ---------- */
+  #about { background: #e8e0cf; color: #14213a; }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+  .about-photo { position: relative; aspect-ratio: 4/5; overflow: hidden; filter: grayscale(.15) contrast(1.05); box-shadow: 12px 14px 0 #14213a; }
+  .about-photo img { width: 100%; height: 100%; object-fit: cover; }
+  .about-copy h2 { font-size: clamp(34px, 5vw, 58px); line-height: .95; letter-spacing: -.02em; margin: 0 0 20px; }
+  .about-copy p { font-size: 17px; margin: 0 0 16px; max-width: 52ch; }
+  .type-note { font-family: var(--font-type); font-size: 14px; line-height: 1.9; margin-top: 26px; color: #4c4a3f; }
+  @media (max-width: 860px) { .about-grid { grid-template-columns: 1fr; gap: 34px; } }
+
+  /* ---------- gallery: contact sheet ---------- */
+  #gallery { background: var(--bg-2); }
+  .contact-sheet { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .shot { position: relative; aspect-ratio: 4/5; overflow: hidden; background: var(--bg-2); }
+  .shot img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(.35) contrast(1.05); transition: filter .3s; }
+  .shot:hover img { filter: none; }
+  .shot::after { content: attr(data-n); position: absolute; left: 8px; bottom: 6px; font: 11px var(--font-type); color: var(--ink); background: rgba(0,0,0,.5); padding: 1px 5px; }
+  @media (max-width: 760px) { .contact-sheet { grid-template-columns: repeat(2, 1fr); } }
+
+  /* ---------- pricing note ---------- */
+  #pricing { background: var(--bg); }
+  .pricing-note {
+    background: linear-gradient(90deg, transparent 0 38px, var(--accent) 38px 40px, transparent 40px),
+      repeating-linear-gradient(var(--paper) 0 28px, #ddd3ba 29px 30px);
+    color: #14213a; padding: 42px 30px 30px 58px; max-width: 620px; box-shadow: 10px 10px 0 rgba(0,0,0,.5); transform: rotate(-.6deg);
+    font-family: var(--font-type);
+  }
+  .pricing-note h3 { font-family: var(--font-type); font-size: 18px; margin: 0 0 14px; }
+  .pricing-note ul { margin: 0 0 14px; padding-left: 18px; font-size: 14.5px; line-height: 1.9; }
+  .pricing-note p.small { font-size: 13px; color: #4c4a3f; margin: 0; }
+
+  /* ---------- faq ---------- */
+  #faq { background: var(--bg-2); }
+  .faq-list { display: flex; flex-direction: column; gap: 0; max-width: 780px; }
+  .faq-item { border-top: 1px solid #22314c; }
+  .faq-list .faq-item:last-child { border-bottom: 1px solid #22314c; }
+  .faq-item summary {
+    list-style: none; cursor: pointer; padding: 22px 4px; display: flex; justify-content: space-between; align-items: center;
+    gap: 20px; font-size: 18px; min-height: 44px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary .plus { font-family: var(--font-type); color: var(--accent); font-size: 22px; transition: transform .2s; flex-shrink: 0; }
+  .faq-item[open] summary .plus { transform: rotate(45deg); }
+  .faq-item .a { padding: 0 4px 24px; color: var(--muted); max-width: 64ch; }
+
+  /* ---------- contact: stamp/note ---------- */
+  #contact {
+    background: var(--bg-2);
+    background-image: radial-gradient(circle at 20% 20%, rgba(242,62,50,.08), transparent 40%);
+  }
+  .contact-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: start; }
+  .contact-note {
+    background: linear-gradient(90deg, transparent 0 38px, var(--accent) 38px 40px, transparent 40px),
+      repeating-linear-gradient(var(--paper) 0 28px, #ddd3ba 29px 30px);
+    color: #14213a; padding: 42px 30px 34px 58px; box-shadow: 10px 10px 0 rgba(0,0,0,.5); transform: rotate(1deg);
+    font-family: var(--font-type); position: relative;
+  }
+  .contact-note h3 { font-family: var(--font-type); font-size: 20px; margin: 0 0 16px; }
+  .contact-note a.mail { display: inline-block; font-weight: 700; text-decoration: underline; margin: 4px 0; word-break: break-word; overflow-wrap: anywhere; }
+  .contact-stamp {
+    position: absolute; right: -14px; bottom: -18px; border: 3px solid var(--accent); color: var(--accent);
+    font-weight: 700; padding: 10px 16px; transform: rotate(-10deg); background: var(--bg-2); font-size: 13px;
+  }
+  .contact-actions { display: flex; flex-direction: column; gap: 16px; }
+  .contact-actions a {
+    display: flex; align-items: center; justify-content: space-between; text-decoration: none; padding: 20px 24px;
+    border: 2px solid #22314c; min-height: 44px; font-family: var(--font-type); font-size: 15px;
+  }
+  .contact-actions a:hover { border-color: var(--accent-2); color: var(--accent-2); }
+  @media (max-width: 860px) { .contact-wrap { grid-template-columns: 1fr; } }
+
+  .placeholder-banner {
+    font-family: var(--font-type); font-size: 13px; color: var(--accent-2); border: 1px dashed var(--accent-2);
+    padding: 10px 14px; margin-top: 18px; display: inline-block;
+  }
+
+  /* ---------- footer ---------- */
+  footer.site {
+    background: var(--bg-2); border-top: 1px solid #22314c; padding: 50px 0 34px;
+  }
+  .footer-grid { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 24px; margin-bottom: 30px; }
+  .footer-brand { font-family: var(--font-display); font-size: 24px; }
+  .footer-links { display: flex; gap: 22px; list-style: none; margin: 0; padding: 0; font-family: var(--font-type); font-size: 14px; flex-wrap: wrap; }
+  .footer-links a { text-decoration: none; }
+  .footer-links a:hover { color: var(--accent-2); }
+  .footer-bottom { font-family: var(--font-type); font-size: 12px; color: var(--muted); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; border-top: 1px solid #222; padding-top: 20px; }
+</style>
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<svg class="grain" aria-hidden="true"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(#n)"/></svg>
+
+<header class="site">
+  <div class="wrap site-nav">
+    <div class="brand">TAIPEI <span>TOURS</span></div>
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="#tours">Tours</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </nav>
+    <a class="nav-cta desktop-only" href="#contact">Book a tour</a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mobilePanel" aria-label="Open menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </div>
+  <div class="wrap mobile-panel" id="mobilePanel">
+    <a href="#tours">Tours</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#about">About</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Book a tour</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section id="hero" class="hero">
+    <div class="hero-bg" style="background-image:url('assets/hero-bg.jpg')" aria-hidden="true"></div>
+    <div class="hero-inner wrap">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Taipei / Private &amp; Friendly</p>
+          <h1>See Taipei<br>like a friend<br>lives here.</h1>
+          <p class="lede">Small, private walks through night markets, temples, and viewpoints — led by a local, paced for you, never a big tour group.</p>
+          <div class="hero-actions">
+            <a class="btn-primary" href="#contact">Book a tour</a>
+            <span class="confidence">Groups of 1–6 · From NT$650</span>
+          </div>
+        </div>
+        <div class="hero-art">
+          <figure class="hero-focal">
+            <img src="assets/hero-focal.jpg" alt="A guide points out lantern-lit details at Longshan Temple to a small group at dusk" loading="eager">
+          </figure>
+          <figure class="hero-polaroid">
+            <img src="assets/hero-polaroid.jpg" alt="Visitors sampling street snacks from a vendor in a Taipei market alley" loading="eager">
+            <small>ALLEY STOP / TAIPEI</small>
+          </figure>
+          <div class="hero-stamp" aria-hidden="true">LOCAL<br>GUIDE</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOURS (services / work) -->
+  <section id="tours">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <p class="kicker">Chapter 01 — The Tours</p>
+        <h2>Six ways to<br>spend a day here.</h2>
+        <p>Pick one, or say what you're into and a route gets built around it. Every tour is private — just your group and your guide.</p>
+      </div>
+
+      <div class="chapters">
+        <article class="chapter" data-reveal>
+          <div class="chapter-num"><span>NO.</span><b>01</b></div>
+          <div class="chapter-body">
+            <h3>Night Market Bites</h3>
+            <p>Stinky tofu, skewers, bubble tea, and a mountain of mango shaved ice — the alleys behind the main strip, where the good stuff actually is.</p>
+            <div class="chapter-meta"><span>2.5 hrs · evening</span><span>Easy pace</span><span>Tastings included</span></div>
+          </div>
+          <div class="chapter-photo">
+            <img src="assets/tour-market.jpg" alt="A towering bowl of mango shaved ice on a market counter with lantern-lit stalls behind" loading="lazy" width="1376" height="768">
+            <span class="chapter-price">NT$800</span>
+          </div>
+        </article>
+
+        <article class="chapter" data-reveal>
+          <div class="chapter-num"><span>NO.</span><b>02</b></div>
+          <div class="chapter-body">
+            <h3>Old Town Lantern Walk</h3>
+            <p>Longshan Temple at blue hour — incense smoke, gilded carvings, and the small rituals locals still do every evening.</p>
+            <div class="chapter-meta"><span>1.5 hrs · dusk</span><span>Easy pace</span><span>Temple etiquette included</span></div>
+          </div>
+          <div class="chapter-photo">
+            <img src="assets/tour-temple.jpg" alt="Visitors looking up at the lantern-lit roofline of Longshan Temple at dusk" loading="lazy" width="1376" height="768">
+            <span class="chapter-price">NT$700</span>
+          </div>
+        </article>
+
+        <article class="chapter" data-reveal>
+          <div class="chapter-num"><span>NO.</span><b>03</b></div>
+          <div class="chapter-body">
+            <h3>CKS Memorial &amp; City Center</h3>
+            <p>The white marble memorial, the changing of the guard if timing allows, then a walk into the glass-and-steel city around it.</p>
+            <div class="chapter-meta"><span>2 hrs · day</span><span>Easy pace</span><span>Metro fare included</span></div>
+          </div>
+          <div class="chapter-photo">
+            <img src="assets/tour-cks.jpg" alt="A small group with a guide looking at a map tablet in front of Chiang Kai-shek Memorial Hall" loading="lazy" width="1376" height="768">
+            <span class="chapter-price">NT$650</span>
+          </div>
+        </article>
+
+        <article class="chapter" data-reveal>
+          <div class="chapter-num"><span>NO.</span><b>04</b></div>
+          <div class="chapter-body">
+            <h3>Elephant Mountain Sunset Hike</h3>
+            <p>A real climb — stairs, sweat, and then the whole skyline and Taipei 101 laid out below as the light turns gold.</p>
+            <div class="chapter-meta"><span>2 hrs · sunset</span><span>Moderate–hard pace</span><span>Water provided</span></div>
+          </div>
+          <div class="chapter-photo">
+            <img src="assets/tour-elephant.jpg" alt="A wooden boardwalk trail through green hillside with the Taipei skyline in the distance" loading="lazy" width="1408" height="768">
+            <span class="chapter-price">NT$750</span>
+          </div>
+        </article>
+
+        <article class="chapter" data-reveal>
+          <div class="chapter-num"><span>NO.</span><b>05</b></div>
+          <div class="chapter-body">
+            <h3>Maokong Gondola &amp; Tea Fields</h3>
+            <p>A glass-floor cable car ride over the hills, then tea brewed the slow way at a family-run mountain tea house.</p>
+            <div class="chapter-meta"><span>Half day</span><span>Easy pace</span><span>Tea tasting included</span></div>
+          </div>
+          <div class="chapter-photo">
+            <img src="assets/tour-maokong.jpg" alt="A group taking a selfie inside a glass gondola cabin over green tea terraces" loading="lazy" width="1376" height="768">
+            <span class="chapter-price">NT$1400</span>
+          </div>
+        </article>
+
+        <article class="chapter" data-reveal>
+          <div class="chapter-num"><span>NO.</span><b>06</b></div>
+          <div class="chapter-body">
+            <h3>Full Taipei Highlights</h3>
+            <p>A full private day combining market, temple, and skyline stops end to end, all routed and paced around your group.</p>
+            <div class="chapter-meta"><span>Full day</span><span>Custom pace</span><span>All transit included</span></div>
+          </div>
+          <div class="chapter-photo">
+            <img src="assets/tour-fullday.jpg" alt="Friends riding an open-top sightseeing bus at night with Taipei 101 lit up ahead" loading="lazy" width="1376" height="768">
+            <span class="chapter-price">NT$2000</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <p class="kicker">Chapter 02 — What It Costs</p>
+        <h2>Straightforward,<br>per person.</h2>
+      </div>
+      <div class="pricing-note" data-reveal>
+        <h3>PRICE LIST — TAIPEI TOURS</h3>
+        <ul>
+          <li>Old Town Lantern Walk — NT$700</li>
+          <li>CKS Memorial &amp; City Center — NT$650</li>
+          <li>Elephant Mountain Sunset Hike — NT$750</li>
+          <li>Night Market Bites — NT$800</li>
+          <li>Maokong Gondola &amp; Tea Fields — NT$1,400</li>
+          <li>Full Taipei Highlights (full day) — NT$2,000</li>
+        </ul>
+        <p class="small">Per person, groups of 1–6. Tastings, temple donations, and transit are covered where noted above — everything else is your own spending along the way.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF (testimonials) -->
+  <section id="proof">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <p class="kicker">Chapter 03 — From Past Guests</p>
+        <h2>What people<br>say afterward.</h2>
+        <span class="placeholder-flag">Placeholder quotes — real guest reviews go here</span>
+      </div>
+      <div class="notebook" data-reveal>
+        <div class="note-card">
+          <p class="quote">"[Placeholder review — swap in a real guest quote here.] Felt like being shown around by a friend, not herded through a checklist."</p>
+          <p class="attr">— Guest, Night Market Bites</p>
+        </div>
+        <div class="note-card">
+          <p class="quote">"[Placeholder review — swap in a real guest quote here.] The temple visit at dusk was the highlight of our whole trip."</p>
+          <p class="attr">— Guest, Old Town Lantern Walk</p>
+        </div>
+        <div class="note-card">
+          <p class="quote">"[Placeholder review — swap in a real guest quote here.] Loved that it was just our group — no waiting on strangers, no rushing."</p>
+          <p class="attr">— Guest, Full Taipei Highlights</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="wrap about-grid">
+      <figure class="about-photo" data-reveal>
+        <img src="assets/about-guide.jpg" alt="A guide pointing out a landmark to a small group of travelers on a sunny plaza" loading="lazy">
+      </figure>
+      <div class="about-copy" data-reveal>
+        <h2>Not a big-bus<br>operation.</h2>
+        <p>Taipei Tours is a small, private guiding practice — no scripts, no flag to follow, no thirty-person groups. Just a local route, walked at your pace, with the alleys and stalls that don't make it into the guidebooks.</p>
+        <p>Every tour is capped at six guests so there's room for actual conversation, questions, and detours when something looks interesting.</p>
+        <div class="type-note">
+          <p>TYPE NOTE — PRIVATE / SMALL GROUP / LOCAL ROUTES.</p>
+          <p>Dietary restrictions, mobility needs, or a specific neighborhood in mind — just mention it when booking.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESOURCES / GALLERY -->
+  <section id="gallery">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <p class="kicker">Chapter 04 — Contact Sheet</p>
+        <h2>Recent days<br>out in the city.</h2>
+      </div>
+      <div class="contact-sheet" data-reveal>
+        <figure class="shot" data-n="01">
+          <img src="assets/gallery-mrt.jpg" alt="Riders on the Taipei metro with a night skyline view through the front window" loading="lazy">
+        </figure>
+        <figure class="shot" data-n="02">
+          <img src="assets/gallery-mango.jpg" alt="Interior of a mango dessert shop with a specialty menu board" loading="lazy">
+        </figure>
+        <figure class="shot" data-n="03">
+          <img src="assets/gallery-alley.jpg" alt="A group tasting snacks from a street vendor in a covered market alley" loading="lazy">
+        </figure>
+        <figure class="shot" data-n="04">
+          <img src="assets/gallery-snack.jpg" alt="Guests trying grilled skewers and oyster vermicelli at a night market stall" loading="lazy">
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <p class="kicker">Chapter 05 — Questions</p>
+        <h2>Before you book.</h2>
+      </div>
+      <div class="faq-list" data-reveal>
+        <details class="faq-item">
+          <summary><span>Are the tours private?</span><span class="plus" aria-hidden="true">+</span></summary>
+          <div class="a">Yes. Every tour is just you, whoever you bring, and your guide — up to 6 guests per group.</div>
+        </details>
+        <details class="faq-item">
+          <summary><span>What's included in the price?</span><span class="plus" aria-hidden="true">+</span></summary>
+          <div class="a">Your guide's time and route planning, plus whatever's marked as included on each tour (tastings, tea, transit, temple donations). Anything unmarked is paid as you go.</div>
+        </details>
+        <details class="faq-item">
+          <summary><span>How much walking is involved?</span><span class="plus" aria-hidden="true">+</span></summary>
+          <div class="a">It varies — market strolls and the temple walk are easy pace, the Elephant Mountain hike is a real climb with stairs. Each tour listing notes the pace so you can pick what fits.</div>
+        </details>
+        <details class="faq-item">
+          <summary><span>Can you build a custom route?</span><span class="plus" aria-hidden="true">+</span></summary>
+          <div class="a">Yes — send a message with what you're into and your available dates, and a route gets built around it.</div>
+        </details>
+        <details class="faq-item">
+          <summary><span>What if it rains?</span><span class="plus" aria-hidden="true">+</span></summary>
+          <div class="a">[Placeholder — confirm your actual rain/reschedule policy and it'll go here.]</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <p class="kicker">Chapter 06 — Book a Tour</p>
+        <h2>Send a message,<br>get a route back.</h2>
+      </div>
+      <div class="contact-wrap" data-reveal>
+        <div class="contact-note">
+          <h3>NOTE TO YOUR GUIDE</h3>
+          <p>Tell me your dates, group size, and which tour (or say "custom") — I'll reply with a plan within a day.</p>
+          <a class="mail" href="mailto:hello@taipeitours.example">hello@taipeitours.example</a><br>
+          <a class="mail" href="tel:+886900000000">+886 900 000 000</a>
+          <div class="contact-stamp">TAIPEI<br>TOURS</div>
+        </div>
+        <div class="contact-actions">
+          <a href="mailto:hello@taipeitours.example">Email to book <span aria-hidden="true">↗</span></a>
+          <a href="tel:+886900000000">Call or message <span aria-hidden="true">↗</span></a>
+          <a href="https://instagram.com/" rel="noopener noreferrer">Instagram <span aria-hidden="true">↗</span></a>
+          <a href="https://line.me/" rel="noopener noreferrer">LINE <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+      <span class="placeholder-banner">Email, phone, and social links above are placeholders — swap in your real contact details before publishing.</span>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">TAIPEI TOURS</div>
+      <nav aria-label="Footer">
+        <ul class="footer-links">
+          <li><a href="#tours">Tours</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Book a tour</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p>© <span id="year"></span> Taipei Tours. Private guided walks, Taipei.</p>
+      <p>All photography is AI-generated reference imagery, for layout purposes.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+const menuBtn = document.getElementById('menuBtn');
+const mobilePanel = document.getElementById('mobilePanel');
+menuBtn.addEventListener('click', () => {
+  const open = mobilePanel.classList.toggle('open');
+  menuBtn.setAttribute('aria-expanded', String(open));
+});
+mobilePanel.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  mobilePanel.classList.remove('open');
+  menuBtn.setAttribute('aria-expanded', 'false');
+}));
+
+const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const nativeScroll = CSS.supports('animation-timeline: view()');
+if (!reduced && !nativeScroll) {
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (!entry.isIntersecting) return;
+      entry.target.style.transitionDelay = `${Math.min(i, 6) * 60}ms`;
+      entry.target.classList.add('is-in');
+      io.unobserve(entry.target);
+    });
+  }, { threshold: .12, rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
+} else {
+  document.querySelectorAll('[data-reveal]').forEach(el => el.classList.add('is-in'));
+}
+</script>
+</body>
+</html>
